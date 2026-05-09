@@ -1,0 +1,687 @@
+/* Variáveis de Cores Atualizadas */
+:root {
+    --rosa-claro: #fecce1;    /* Fundo e Header */
+    --marsala-medio: #8b5a6e; /* Botões e Títulos */
+    --marsala-escuro: #512c3b; /* Texto e Destaques */
+    --bege-fundo: #fdf8f4;    /* Fundo das seções claras */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    background-color: var(--bege-fundo);
+    color: var(--marsala-escuro);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    background-color: var(--rosa-claro);
+    padding: 20px 0;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem;
+    color: var(--marsala-escuro);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--marsala-escuro);
+    margin-left: 30px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Hero Section */
+.hero {
+    padding: 100px 0;
+}
+
+.flex-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+h1, h2 {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: 3.5rem;
+    color: var(--marsala-escuro);
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    margin-bottom: 35px;
+    max-width: 500px;
+}
+
+.hero-btns {
+    display: flex;
+    gap: 15px;
+}
+
+/* Botões */
+.btn {
+    padding: 14px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: 0.3s ease;
+}
+
+.btn-fill {
+    background-color: #fce4ec; /* Rosa bem clarinho para o botão */
+    color: var(--marsala-medio);
+}
+
+.btn-outline {
+    border: 1px solid var(--marsala-medio);
+    color: var(--marsala-medio);
+}
+
+.btn:hover {
+    opacity: 0.8;
+    transform: translateY(-2px);
+}
+
+/* Imagens Circulares */
+.circle-img {
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+}
+
+.circle-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Seção Sobre (Faixa Rosa) */
+.about-pink {
+    background-color: #fecce1; /* Cor rosa fiel ao seu pedido */
+    padding: 80px 0;
+    margin: 40px 0; /* Espaço para não colar nas seções vizinhas */
+}
+
+/* O segredo para o alinhamento está aqui */
+.about-pink .container-flex {
+    display: flex;
+    align-items: center; /* Centraliza verticalmente texto e imagem */
+    justify-content: space-between;
+    gap: 50px;
+    max-width: 1200px; /* Ajuste conforme a largura do seu projeto */
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* Lado do Texto */
+.about-content {
+    flex: 1.2; /* Dá um pouco mais de espaço para o texto */
+    text-align: left;
+}
+
+.about-content h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3.5rem;
+    color: #512c3b;
+    margin-bottom: 25px;
+    font-style: italic;
+}
+
+.about-content p {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: #512c3b;
+    margin-bottom: 30px;
+    max-width: 600px; /* Impede que o texto se espalhe demais */
+}
+
+/* Lado da Imagem */
+.about-image {
+    flex: 0.8;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.about-image .circle-img {
+    width: 420px; /* Tamanho fiel ao Figma */
+    height: 420px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.about-image .circle-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Tabs (Abas) */
+.filter-tabs {
+    display: flex;
+    gap: 12px;
+}
+
+.tab {
+    padding: 10px 25px;
+    border: 1px solid #8b5a6e;
+    border-radius: 30px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    color: #8b5a6e;
+    cursor: pointer;
+    background: transparent;
+    transition: 0.3s;
+}
+
+.tab.active {
+    background-color: #8b5a6e;
+    color: white;
+}
+
+/* Como Ajudar */
+.how-to-help {
+    padding: 100px 0;
+}
+
+.grid-help {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.help-info h2 {
+    text-decoration: underline;
+    text-underline-offset: 8px;
+}
+
+.help-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card {
+    background-color: var(--marsala-medio);
+    color: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card:hover {
+    background-color: var(--marsala-escuro);
+}
+
+/* Animações */
+.fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    h1 { font-size: 2.8rem; }
+    .circle-img { width: 350px; height: 350px; }
+}
+
+@media (max-width: 768px) {
+    .flex-hero, .container-flex, .grid-help {
+        flex-direction: column;
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .hero-text p { margin: 0 auto 30px; }
+    .hero-btns { justify-content: center; }
+    .filter-tabs { justify-content: center; }
+    
+    .circle-img {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+/* Reset e Estilo Geral do Footer */
+.main-footer {
+    background-color: var(--bege-fundo); /* Fundo suave */
+    padding: 80px 0 30px 0;
+    border-top: 1px solid rgba(139, 90, 110, 0.2); /* Linha sutil marsala */
+    color: var(--marsala-escuro);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+/* Estilo da Logo no Footer */
+.logo-footer {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem;
+    color: var(--marsala-medio);
+    margin-bottom: 15px;
+}
+
+.brand-column p {
+    font-size: 0.95rem;
+    max-width: 300px;
+    line-height: 1.5;
+}
+
+/* Títulos das Colunas */
+.footer-column h3 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    color: var(--marsala-escuro);
+}
+
+/* Listas e Links */
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 12px;
+}
+
+.footer-column a {
+    text-decoration: none;
+    color: var(--marsala-escuro);
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+    color: var(--marsala-medio);
+}
+
+.footer-column p {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+}
+
+/* Parte Inferior (Copyright) */
+.footer-bottom {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.footer-bottom hr {
+    border: 0;
+    border-top: 1px solid rgba(139, 90, 110, 0.1);
+    margin-bottom: 25px;
+}
+
+.footer-bottom p {
+    font-size: 0.85rem;
+    color: #a0808c; /* Um tom de cinza rosado */
+}
+
+/* Ajuste para telas menores */
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        text-align: center;
+    }
+    
+    .brand-column {
+        grid-column: span 2;
+        margin-bottom: 30px;
+    }
+    
+    .brand-column p {
+        margin: 0 auto;
+    }
+}
+
+/* Estilo do ícone hambúrguer (escondido por padrão) */
+.mobile-menu-icon {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--marsala-escuro);
+    transition: 0.3s;
+}
+
+/* Responsividade do Menu */
+@media (max-width: 768px) {
+    .mobile-menu-icon { display: flex; }
+
+    .nav-list {
+        display: none; /* Esconde a lista original */
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: var(--rosa-claro);
+        padding: 20px;
+        text-align: center;
+        z-index: 1000;
+    }
+
+    /* Classe que o JS vai adicionar */
+    .nav-list.active { display: flex; }
+    
+    nav ul li { margin: 15px 0; }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Seção de Contato */
+.contact-section {
+    background-color: var(--marsala-escuro); /* #512c3b */
+    padding: 100px 0;
+    color: #ffffff;
+}
+
+.grid-contact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.contact-info h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3.5rem;
+    color: #ffffff; /* Branco para destacar no fundo escuro */
+    margin-bottom: 40px;
+    font-style: italic;
+}
+
+.info-block {
+    margin-bottom: 30px;
+}
+
+.info-block h3 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    color: var(--rosa-claro); /* #fecce1 */
+}
+
+.info-block p, .info-block a {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.1rem;
+    color: #f0f0f0;
+    text-decoration: none;
+    line-height: 1.6;
+}
+
+.info-block a:hover {
+    text-decoration: underline;
+    color: var(--rosa-claro);
+}
+
+/* Estilização do Mapa */
+.contact-map {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 450px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.map-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* Camada que aparece ao passar o mouse sobre o mapa */
+.map-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(81, 44, 59, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: 0.3s ease;
+    z-index: 2;
+    pointer-events: none; /* Deixa o clique passar para o link */
+}
+
+.map-link:hover .map-overlay {
+    opacity: 1;
+}
+
+.map-overlay span {
+    background-color: var(--rosa-claro);
+    color: var(--marsala-escuro);
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-weight: 600;
+}
+
+/* Iframe do mapa */
+.contact-map iframe {
+    filter: grayscale(0.3) contrast(1.1); /* Um leve filtro para combinar com o site */
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .grid-contact {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        text-align: center;
+    }
+
+    .contact-info h2 {
+        font-size: 3rem;
+    }
+
+    .contact-map {
+        height: 350px;
+    }
+}
+
+.contact-map {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 450px;
+    background-color: #222; /* Fundo preto caso o mapa demore a carregar */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.contact-map iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+.map-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+}
+
+.contact-map {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* Link que cobre todo o mapa */
+.map-link-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.2); /* Escurece o mapa levemente */
+    text-decoration: none;
+    z-index: 10; /* Garante que fique na frente do iframe */
+    transition: background 0.3s ease;
+}
+
+.map-link-overlay:hover {
+    background: rgba(0, 0, 0, 0.4); /* Escurece mais ao passar o mouse */
+}
+
+/* Estilo do Botão Rosa */
+.map-button {
+    background-color: #fecce1; /* Seu rosa claro */
+    color: #512c3b; /* Seu marsala escuro */
+    padding: 15px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-family: 'Raleway', sans-serif;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.map-link-overlay:hover .map-button {
+    transform: scale(1.05); /* Efeito de pulso ao passar o mouse */
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaço entre o ícone e o texto */
+    text-decoration: none;
+    color: var(--marsala-escuro);
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Tamanho do ícone */
+.social-links i {
+    font-size: 1.4rem;
+    color: var(--marsala-medio);
+}
+
+/* Efeito ao passar o mouse */
+.social-links a:hover {
+    color: var(--marsala-medio);
+    transform: translateX(5px); /* Move levemente para a direita */
+}
+
+.social-links a:hover i {
+    color: var(--marsala-escuro);
+}
+
+/* Header Fixo no Topo */
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--rosa-claro);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+}
+
+/* Compensação para o conteúdo não ficar escondido atrás do header fixo */
+body {
+    padding-top: 80px; /* Ajuste conforme a altura do seu header */
+}
+
+/* Ajuste das Logos PNG */
+.logo-img {
+    height: 60px; /* Ajuste conforme o tamanho do seu PNG */
+    width: auto;
+    display: block;
+}
+
+.logo-img-footer {
+    height: 80px; /* Logo um pouco maior no rodapé */
+    width: auto;
+    margin-bottom: 15px;
+    display: block;
+}
+
+/* Ajuste do container para alinhar a imagem da logo */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
