@@ -2,22 +2,22 @@
 const contentData = {
     sobre: {
         title: "Sobre nós",
-        text: "A instituição caracteriza-se como uma casa de acolhimento destinada a <strong>mulheres de 18 a 59 anos e seus filhos que possuem até 17 anos</strong>...",
+        text: "A instituição caracteriza-se como uma casa de acolhimento destinada a <strong>mulheres de 18 a 59 anos e seus filhos que possuem até 17 anos</strong> A instituição caracteriza-se como uma casa de acolhimento destinada a mulheres de 18 a 59 anos e seus filhos que possuem até 17 anos, que encontram-se em situação de rua e vulnerabilidade relacionada a gênero.",
         img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=800"
     },
     missao: {
         title: "Nossa Missão",
-        text: "Oferecer assistência e acolhimento de forma individual com serenidade e determinação...",
+        text: "Oferecer assistência e acolhimento de forma individual com serenidade e determinação, suprindo as necessidades humanas básicas e respeitando os princípios da ética no processo do cuidar, proporcionando desta forma condições que potencialize a sua inclusão.",
         img: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=800"
     },
     visao: {
         title: "Nossa Visão",
-        text: "Ser reconhecida como Instituição de acolhimento, referência na região metropolitana de Salvador...",
+        text: "Ser reconhecida como Instituição de acolhimento, referência na região metropolitana de Salvador no atendimento com excelência e qualidade.",
         img: "https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?q=80&w=800"
     },
     valores: {
         title: "Nossos Valores",
-        text: "Atuar durante toda assistência com calor humano, determinação, empatia, hospitalidade...",
+        text: "atuar durante toda assistência com calor humano, determinação, empatia, hospitalidade, respeito e serenidade, preservando a individualidade.",
         img: "https://static.significados.com.br/foto/valores-og.jpg"
     }
 };
