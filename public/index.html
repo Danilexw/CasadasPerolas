@@ -5,57 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Casa das Pérolas</title>
     <link rel="stylesheet" href="css/style.css">
-    <!-- Fontes e Ícones -->
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-   <!-- Header Fixo -->
-<header class="fixed-header">
-    <div class="container nav-container">
-        <!-- Logo PNG oficial no Header -->
-        <div class="logo">
-            <img src="imgs/CasadasPerolas.png" alt="Logo Casa das Pérolas" class="logo-img">
-        </div>
-        <nav>
-            <div class="mobile-menu-icon">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
+    <header class="fixed-header">
+        <div class="container nav-container">
+            <div class="logo">
+                <img src="imgs/CasadasPerolas.png" alt="Logo Casa das Pérolas" class="logo-img">
             </div>
-            
-            <ul class="nav-list">
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="fazemos.html">O que fazemos</a></li>
-                <li><a href="doacoes.html">Como Ajudar</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+            <nav>
+                <div class="mobile-menu-icon">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                
+                <ul class="nav-list">
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="fazemos.html">O que fazemos</a></li>
+                    <li><a href="doacoes.html">Como Ajudar</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="container flex-hero">
             <div class="hero-text">
                 <h1>Acolhendo mulheres, reconstruindo histórias.</h1>
                 <p>A Casa das Pérolas é um projeto social dedicado ao acolhimento, cuidado e apoio de mulheres em situação de vulnerabilidade.</p>
                 <div class="hero-btns">
-                    <a href="#ajudar" class="btn btn-fill">Como ajudar?</a>
+                    <a href="doacoes.html" class="btn btn-fill">Como ajudar?</a>
                     <a href="#contato" class="btn btn-outline">Entre em contato</a>
                 </div>
             </div>
             <div class="hero-image">
                 <div class="circle-img">
-                    <!-- Imagem: Mulher sorrindo (Acolhimento) -->
                     <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=800&auto=format&fit=crop" alt="Mulher acolhida sorrindo">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sobre Section -->
     <section id="sobre" class="about-pink">
         <div class="container-flex">
             <div class="about-content">
@@ -75,14 +69,12 @@
 
             <div class="about-image">
                 <div class="circle-img">
-                    <!-- Imagem: Grupo de mulheres/Equipe -->
                     <img id="about-img" src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=800&auto=format&fit=crop" alt="Equipe Casa das Pérolas">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Como Ajudar -->
     <section id="ajudar" class="how-to-help">
         <div class="container grid-help">
             <div class="help-info">
@@ -98,7 +90,6 @@
         </div>
     </section>
 
-    <!-- Seção de Contato -->
     <section id="contato" class="contact-section">
         <div class="container grid-contact">
             <div class="contact-info">
@@ -138,31 +129,35 @@
         <div class="container footer-grid">
             <div class="footer-column brand-column">
                 <div class="logo-footer">
-                    <img src="imgs/CasadasPerolas.png" alt="Logo Casa das Pérolas" class="logo-img-footer">
+                    <img src="imgs/CasadasPerolas.png" alt="Logo Rodapé Casa das Pérolas" class="logo-img-footer">
                 </div>
                 <p>Um projeto social dedicado à reconstrução da dignidade feminina e ao fortalecimento de laços comunitários.</p>
             </div>
 
-            <div class="footer-column">
+            <div class="footer-column links-column">
                 <h3>Institucional</h3>
                 <ul>
-                    <li><a href="#sobre">Sobre nós</a></li>
+                    <li><a href="index.html#sobre">Sobre nós</a></li>
                     <li><a href="#">Transparência</a></li>
                     <li><a href="#">Relatórios</a></li>
                 </ul>
             </div>
 
-            <div class="footer-column">
+            <div class="footer-column links-column">
                 <h3>Contato</h3>
-                <p>contato@casadasperolas.org</p>
-                <p>(71) 3397-3535</p>
+                <p><i class="fas fa-envelope"></i> cdperolas@gmail.com</p>
+                <p><i class="fas fa-phone"></i> (71) 3397-3535</p>
             </div>
 
-            <div class="footer-column">
+            <div class="footer-column links-column">
                 <h3>Siga-nos</h3>
                 <div class="social-links">
-                    <a href="https://www.instagram.com/casadasperolas" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-                    <a href="https://www.facebook.com/casadasperolas" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+                    <a href="https://www.instagram.com/casadasperolas" target="_blank">
+                        <i class="fab fa-instagram"></i> Instagram
+                    </a>
+                    <a href="https://www.facebook.com/casadasperolas" target="_blank">
+                        <i class="fab fa-facebook"></i> Facebook
+                    </a>
                 </div>
             </div>
         </div>
@@ -170,7 +165,7 @@
         <div class="footer-bottom">
             <div class="container">
                 <hr>
-                <p>&copy; 2026 Casa das Pérolas. Todos os direitos reservados. Feito com amor.</p>
+                <p>© 2026 Casa das Pérolas. Todos os direitos reservados. Feito com amor.</p>
             </div>
         </div>
     </footer>
