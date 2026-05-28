@@ -114,7 +114,6 @@ h1, h2 {
 }
 
 .btn:hover {
-    opacity: 0.8;
     transform: translateY(-2px);
 }
 
@@ -134,11 +133,33 @@ h1, h2 {
     object-fit: cover;
 }
 
-/* Seção Sobre (Faixa Rosa) */
+/* Seção Sobre (Faixa Rosa com a Onda Acoplada) */
 .about-pink {
     background-color: #fecce1; /* Cor rosa fiel ao seu pedido */
-    padding: 80px 0;
-    margin: 40px 0; /* Espaço para não colar nas seções vizinhas */
+    padding: 140px 0 80px 0; /* Aumentado para 140px para empurrar o texto ainda mais para baixo */
+    margin: 0; 
+    position: relative; 
+}
+
+/* O SEGREDO DA ONDA ESPELHADA E AFASTADA */
+.about-pink::before {
+    content: "";
+    position: absolute;
+    top: -95px; /* Ajustado milimetricamente para dar mais respiro aos botões de cima */
+    left: 0;
+    width: 100%;
+    height: 100px; 
+    background-color: transparent;
+    
+    /* Desenho vetorial da onda curva */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100' preserveAspectRatio='none'%3E%3Cpath fill='%23fecce1' d='M0,64 C288,15 576,15 864,64 C1152,112 1296,96 1440,64 L1440,100 L0,100 Z'%3E%3C/path%3E%3C/svg%3E");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 1;
+
+    /* MÁGICA DE ESPELHAMENTO: Inverte a onda horizontalmente */
+    transform: scaleX(-1); 
 }
 
 /* O segredo para o alinhamento está aqui */
@@ -150,6 +171,8 @@ h1, h2 {
     max-width: 1200px; /* Ajuste conforme a largura do seu projeto */
     margin: 0 auto;
     padding: 0 40px;
+    position: relative;
+    z-index: 2; /* Garante que o conteúdo fique na frente do efeito da onda */
 }
 
 /* Lado do Texto */
@@ -2019,5 +2042,393 @@ h1, h2 {
         height: 310px !important;
         border: 6px solid white !important;
         box-shadow: 0 15px 35px rgba(81, 44, 59, 0.1) !important;
+    }
+}
+
+/* ==========================================================================
+   SEÇÃO COMO AJUDAR - ATUALIZAÇÃO LOOK & FEEL FIGMA
+   ========================================================================== */
+.how-to-help {
+    padding: 100px 0;
+    background-color: var(--bege-fundo);
+}
+
+/* Linha decorativa rosa abaixo do título */
+.heart-line {
+    display: flex;
+    align-items: center;
+    width: 120px;
+    height: 3px;
+    background-color: #fbcfe2;
+    margin: -15px 0 25px 0;
+    position: relative;
+}
+
+.heart-line::before {
+    content: '❤';
+    color: #8b5a6e;
+    font-size: 0.8rem;
+    position: absolute;
+    left: 0;
+    top: -7px;
+    background-color: var(--bege-fundo);
+    padding-right: 5px;
+}
+
+.help-info p {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #614d55;
+    margin-bottom: 20px;
+    max-width: 480px;
+}
+
+/* Container da lista à direita */
+.help-cards-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+/* Novo Card Horizontal Alinhado */
+.help-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid rgba(139, 90, 110, 0.08);
+    border-radius: 16px;
+    padding: 24px 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(81, 44, 59, 0.03);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Agrupamento do Ícone + Texto à esquerda */
+.item-left-content {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+/* Wrapper circular ou suavizado para o ícone */
+.icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    color: #8b5a6e;
+    font-size: 1.8rem; /* Tamanho proporcional do ícone */
+}
+
+.help-list-item span {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 1.35rem;
+    color: var(--marsala-escuro);
+}
+
+/* Estilo da seta indicativa à direita */
+.arrow-icon {
+    color: var(--marsala-escuro);
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+/* Efeitos de Interação (Hover) */
+.help-list-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(81, 44, 59, 0.08);
+    border-color: rgba(139, 90, 110, 0.2);
+    background-color: #fffafb;
+}
+
+.help-list-item:hover .arrow-icon {
+    transform: translateX(4px); /* Seta dá um leve pulso para a direita */
+    color: var(--marsala-medio);
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE MOBILE REVISADA CONTRA QUEBRAS
+   ========================================================================== */
+@media (max-width: 768px) {
+    .heart-line {
+        margin: -15px auto 25px auto; /* Centraliza a linha no mobile */
+    }
+
+    .help-cards-list {
+        padding: 0 10px !important;
+    }
+
+    .help-list-item {
+        padding: 20px !important;
+        width: 100% !important;
+    }
+
+    .item-left-content {
+        gap: 15px !important;
+    }
+
+    .icon-wrapper {
+        font-size: 1.5rem !important;
+    }
+
+    .help-list-item span {
+        font-size: 1.15rem !important;
+    }
+}
+
+/* ==========================================================================
+   VERSÃO MOBILE AJUSTADA (CORREÇÃO DE ALINHAMENTO DOS BOTÕES)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .hero {
+        padding: 50px 0 30px 0 !important;
+    }
+
+    .flex-hero {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 30px !important;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 20px !important;
+        padding: 0 10px;
+    }
+
+    .hero-text p {
+        font-size: 1.05rem !important;
+        margin: 0 auto 35px auto !important;
+        max-width: 100% !important;
+        padding: 0 15px;
+    }
+
+    /* CONTAINER DOS BOTÕES */
+    .hero-btns {
+        display: flex !important;
+        flex-direction: row !important; /* Mantém lado a lado */
+        justify-content: center !important;
+        align-items: center !important; /* Garante alinhamento pelo centro horizontal */
+        gap: 12px !important;
+        padding: 0 15px;
+        width: 100%;
+    }
+
+    /* BOTÕES MOBILE UNIFICADOS */
+    .hero-btns .btn {
+        font-size: 0.9rem !important;
+        flex: 1;
+        max-width: 165px;
+        
+        /* O SEGREDO DO ALINHAMENTO EQUILIBRADO: */
+        height: 54px !important; /* Força os dois botões a terem exatamente o mesmo tamanho físico */
+        padding: 0 10px !important; /* Remove paddings verticais brutos e deixa margem livre interna */
+        display: inline-flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center !important;
+        line-height: 1.2 !important; /* Permite que o texto quebre sem estufar o botão outline */
+    }
+
+    /* IMAGEM HERO NO SMARTPHONE */
+    .hero-image .circle-img {
+        width: 320px !important;
+        height: 320px !important;
+        border: 6px solid white !important;
+        box-shadow: 0 15px 35px rgba(81, 44, 59, 0.1) !important;
+    }
+}
+
+/* ==========================================================================
+   CONTAINER DA IMAGEM E ELEMENTOS DECORATIVOS (LOOK COMPLETO DO FIGMA)
+   ========================================================================== */
+.hero-image {
+    flex: 0.8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Base fixa para as plantas e o shape orbitarem */
+    width: 100%;
+    min-height: 520px; /* Garante que os shapes traseiros tenham espaço útil */
+    animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+    opacity: 0;
+}
+
+/* --- ELEMENTO 1: O SHAPE ROSA ASSIMÉTRICO (BLOB) --- */
+.hero-image::before {
+    content: "";
+    position: absolute;
+    width: 530px; /* Largura esticada horizontalmente idêntica ao print */
+    height: 440px; /* Um pouco mais baixo para criar o formato oval orgânico */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centralização matemática perfeita atrás da foto */
+    z-index: 1;
+    
+    /* Cor rosa oficial translúcida */
+    background-color: rgba(254, 204, 225, 0.85); 
+    
+    /* Curvaturas assimétricas dinâmicas calculadas para imitar o vetor do Figma */
+    border-radius: 41% 59% 45% 55% / 55% 58% 42% 45%;
+    
+    pointer-events: none;
+}
+
+/* --- ELEMENTO 2: A ILUSTRAÇÃO DE PLANTAS BRANCAS (RAMOS FLUTUANTES) --- */
+.hero-image::after {
+    content: "";
+    position: absolute;
+    width: 600px; /* Abre além do shape rosa para as folhas brotarem nas pontas */
+    height: 500px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2; /* Fica entre o shape rosa e a foto circular */
+    
+    /* Injeção direta de um vetor SVG de folhas lineares brancas (limpo e sem peso) */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 500'%3E%3Cpath d='M80,260 C120,200 200,160 280,240 M280,240 C360,180 460,200 520,280 M120,220 C100,170 140,130 180,160 M440,210 C460,150 420,110 380,140 M180,300 C140,350 80,330 110,280 M400,320 C420,380 480,360 460,300' stroke='white' stroke-width='2.5' fill='none' stroke-linecap='round' opacity='0.75'/%3E%3C!-- Ramos da Esquerda --%3E%3Cpath d='M150,190 Q120,130 60,160 Q110,210 150,190 Z' fill='none' stroke='white' stroke-width='2' opacity='0.8'/%3E%3Cpath d='M200,175 Q180,100 130,110 Q160,170 200,175 Z' fill='none' stroke='white' stroke-width='2' opacity='0.8'/%3E%3Cpath d='M110,245 Q50,220 40,280 Q90,270 110,245 Z' fill='none' stroke='white' stroke-width='2' opacity='0.8'/%3E%3C!-- Ramos da Direita --%3E%3Cpath d='M420,195 Q450,130 510,155 Q460,210 420,195 Z' fill='none' stroke='white' stroke-width='2' opacity='0.8'/%3E%3Cpath d='M370,180 Q380,100 430,105 Q410,170 370,180 Z' fill='none' stroke='white' stroke-width='2' opacity='0.8'/%3E%3Cpath d='M460,240 Q520,215 540,275 Q490,265 460,240 Z' fill='none' stroke='white' stroke-width='2' opacity='0.8'/%3E%3C/svg%3E");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    pointer-events: none;
+}
+
+/* --- ELEMENTO 3: A FOTO CIRCULAR PRINCIPAL PRINCIPAL --- */
+.hero-image .circle-img {
+    width: 380px; /* Reduzido levemente para o shape e as plantas aparecerem mais */
+    height: 380px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    z-index: 3; /* Força a foto a ficar por cima de toda a ilustração */
+    border: 12px solid white; /* Moldura branca espessa idêntica ao print */
+    box-shadow: 0 15px 40px rgba(81, 44, 59, 0.1);
+}
+
+/* ==========================================================================
+   MÍDIA QUERY RESPONSIVA (MOBILE AJUSTADO CONFORME SEU COLO ORIGINAL)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .hero-image {
+        min-height: 400px !important;
+        margin-top: 20px;
+    }
+
+    /* Reduz o shape traseiro proporcionalmente para não quebrar a tela do celular */
+    .hero-image::before {
+        width: 350px !important;
+        height: 300px !important;
+        border-radius: 41% 59% 45% 55% / 55% 58% 42% 45% !important;
+    }
+
+    /* Reduz a ilustração de plantas para abraçar o círculo menor */
+    .hero-image::after {
+        width: 390px !important;
+        height: 340px !important;
+    }
+
+    .hero-image .circle-img {
+        width: 270px !important;
+        height: 270px !important;
+        border: 8px solid white !important;
+    }
+}
+
+/* ==========================================================================
+   CONTAINER DA IMAGEM E ELEMENTOS DECORATIVOS (LOOK COMPLETO DO FIGMA)
+   ========================================================================== */
+.hero-image {
+    flex: 0.8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Base fixa para as plantas e o shape orbitarem */
+    width: 100%;
+    min-height: 520px; /* Garante que os shapes traseiros tenham espaço útil */
+    animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+    opacity: 0;
+}
+
+/* --- ELEMENTO 1: O SHAPE ROSA ASSIMÉTRICO (BLOB) --- */
+.hero-image::before {
+    content: "";
+    position: absolute;
+    width: 530px; /* Largura esticada horizontalmente idêntica ao print */
+    height: 440px; /* Um pouco mais baixo para criar o formato oval orgânico */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centralização matemática perfeita atrás da foto */
+    z-index: 1;
+    
+    /* Cor rosa oficial translúcida */
+    background-color: rgba(254, 204, 225, 0.85); 
+    
+    /* Curvaturas assimétricas dinâmicas calculadas para imitar o vetor do Figma */
+    border-radius: 41% 59% 45% 55% / 55% 58% 42% 45%;
+    
+    pointer-events: none;
+}
+
+/* --- ELEMENTO 2: A ILUSTRAÇÃO DE PLANTAS BRANCAS (RAMOS FLUTUANTES) --- */
+.hero-image::after {
+    content: "";
+    position: absolute;
+    width: 600px; /* Abre além do shape rosa para as folhas brotarem nas pontas */
+    height: 500px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2; /* Fica entre o shape rosa e a foto circular */
+    
+    /* Injeção direta de um vetor SVG de folhas lineares brancas (limpo e sem peso) */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 500'%3E%3Cpath d='M80,260 C120,200 200,160 280,240 M280,240 C360,180 460,200 520,280 M120,220 C100,170 140,130 180,160 M440,210 C460,150 420,110 380,140 M180,300 C140,350 80,330 110,280 M400,320 C420,380 480,360 460,300' stroke='white' stroke-width='2.5' fill='none' stroke-linecap='round' opacity='0.75'/%3E%3C!-- Ramos da Esquerda --%3E%3Cpath d='M150,190 Q120,130 60,160 Q110,210 150,190 Z' fill='none' stroke='white' stroke-width='2' opacity='0.8'/%3E%3Cpath d='M200,175 Q180,100 130,110 Q160,170 200,175 Z' fill='none' stroke='white' stroke-width='2' opacity='0.8'/%3E%3Cpath d='M110,245 Q50,220 40,280 Q90,270 110,245 Z' fill='none' stroke='white' stroke-width='2' opacity='0.8'/%3E%3C!-- Ramos da Direita --%3E%3Cpath d='M420,195 Q450,130 510,155 Q460,210 420,195 Z' fill='none' stroke='white' stroke-width='2' opacity='0.8'/%3E%3Cpath d='M370,180 Q380,100 430,105 Q410,170 370,180 Z' fill='none' stroke='white' stroke-width='2' opacity='0.8'/%3E%3Cpath d='M460,240 Q520,215 540,275 Q490,265 460,240 Z' fill='none' stroke='white' stroke-width='2' opacity='0.8'/%3E%3C/svg%3E");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    pointer-events: none;
+}
+
+/* --- ELEMENTO 3: A FOTO CIRCULAR PRINCIPAL PRINCIPAL --- */
+.hero-image .circle-img {
+    width: 380px; /* Reduzido levemente para o shape e as plantas aparecerem mais */
+    height: 380px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    z-index: 3; /* Força a foto a ficar por cima de toda a ilustração */
+    border: 12px solid white; /* Moldura branca espessa idêntica ao print */
+    box-shadow: 0 15px 40px rgba(81, 44, 59, 0.1);
+}
+
+/* ==========================================================================
+   MÍDIA QUERY RESPONSIVA (MOBILE AJUSTADO CONFORME SEU COLO ORIGINAL)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .hero-image {
+        min-height: 400px !important;
+        margin-top: 20px;
+    }
+
+    /* Reduz o shape traseiro proporcionalmente para não quebrar a tela do celular */
+    .hero-image::before {
+        width: 350px !important;
+        height: 300px !important;
+        border-radius: 41% 59% 45% 55% / 55% 58% 42% 45% !important;
+    }
+
+    /* Reduz a ilustração de plantas para abraçar o círculo menor */
+    .hero-image::after {
+        width: 390px !important;
+        height: 340px !important;
+    }
+
+    .hero-image .circle-img {
+        width: 270px !important;
+        height: 270px !important;
+        border: 8px solid white !important;
     }
 }
