@@ -2432,3 +2432,79 @@ h1, h2 {
         border: 8px solid white !important;
     }
 }
+
+@media (max-width: 768px) {
+
+    /* --- AJUSTE DA ONDA MOBILE (FICA SUAVE E ALTA) --- */
+    .about-pink {
+        padding: 90px 0 60px 0 !important; /* Respiro interno ideal para o texto */
+        margin-top: 40px !important; /* Empurra a seção para baixo, dando espaço para a onda respirar */
+    }
+
+    .about-pink::before {
+        top: -55px !important; /* Reposiciona o início da curva no topo sem amassar */
+        height: 60px !important; /* Altura suavizada para a curvatura não achatar */
+        /* Novo SVG focado em telas verticais para manter a onda orgânica */
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 768 60' preserveAspectRatio='none'%3E%3Cpath fill='%23fecce1' d='M0,40 C150,10 350,10 550,40 C650,55 720,50 768,40 L768,60 L0,60 Z'%3E%3C/path%3E%3C/svg%3E") !important;
+    }
+
+    /* --- HERO TEXT & COMPONENTES --- */
+    .hero {
+        padding: 50px 0 20px 0 !important;
+    }
+
+    .flex-hero {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 30px !important;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 20px !important;
+    }
+
+    .hero-text p {
+        font-size: 1.05rem !important;
+        margin: 0 auto 35px auto !important;
+    }
+
+    .hero-btns {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+        gap: 12px !important;
+        padding: 0 15px;
+    }
+
+    .hero-btns .btn {
+        font-size: 0.9rem !important;
+        flex: 1;
+        max-width: 165px;
+        height: 54px !important;
+        display: inline-flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    /* --- REMOÇÃO DO SHAPE E DA PLANTA ATRÁS DA FOTO NO MOBILE --- */
+    .hero-image {
+        display: none !important;
+    }
+
+    /* Oculta o Blob Rosa e as Plantas Brancas no Celular */
+    .hero-image::before,
+    .hero-image::after {
+        display: none !important;
+    }
+
+    /* Mantém apenas a foto limpa com a moldura branca do Figma */
+    .hero-image .circle-img {
+        width: 290px !important;
+        height: 290px !important;
+        border: 8px solid white !important;
+        box-shadow: 0 12px 35px rgba(81, 44, 59, 0.12) !important;
+        transform: none !important; /* Desativa rotações em telas touch */
+    }
+}
