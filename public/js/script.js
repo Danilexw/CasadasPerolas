@@ -117,8 +117,5 @@ function copyText(elementId) {
     
     navigator.clipboard.writeText(textToCopy).then(() => {
         // Alerta sutil ou feedback visual pode ser injetado aqui
-        alert("Copiado com sucesso: " + textToCopy);
-    }).catch(err => {
-        console.error("Erro ao copiar texto: ", err);
     });
 }
