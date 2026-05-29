@@ -2930,7 +2930,7 @@ h1, h2 {
     padding: 0;
     
     /* GRADIENTE + SUA IMAGEM: Altere 'comoajudar.png' para o nome do arquivo que quer usar no fundo */
-    background-image: linear-gradient(180deg, rgba(36, 5, 15, 0.85) 0%, rgba(66, 19, 35, 0.6) 100%), 
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.35) 100%),  
                       url('../imgs/fazemos.png') !important;
 }
 
@@ -3121,6 +3121,27 @@ h1, h2 {
    RESPONSIVIDADE (MOBILE)
    ========================================================================== */
 @media (max-width: 992px) {
+
+    .page-header-wave {
+        height: auto !important; /* Libera a altura fixa para não esmagar o conteúdo */
+        padding: 120px 0 60px 0 !important; /* Empurra o texto para baixo do menu e dá respiro */
+        background-position: center center !important;
+    }
+
+    .page-header-wave h1 {
+        font-size: 2.4rem !important; /* Reduz ligeiramente o tamanho para não quebrar linha de forma feia */
+        color: var(--rosa-claro) !important; /* Força a cor escura para dar contraste total sobre a foto */
+        line-height: 1.2 !important;
+    }
+
+    .header-wave-content {
+        padding: 0 20px !important; /* Evita que o texto encoste nas bordas laterais do celular */
+    }
+    
+    .heart-line-center {
+        margin-top: 10px !important;
+    }
+
     .grid-pillars {
         grid-template-columns: 1fr;
         gap: 20px;
