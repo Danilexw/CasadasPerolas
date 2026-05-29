@@ -58,12 +58,12 @@ document.addEventListener("DOMContentLoaded", function() {
         sobre: {
             title: "Sobre nós",
             text: "A instituição caracteriza-se como uma casa de acolhimento destinada a <strong>mulheres de 18 a 59 anos e seus filhos que possuem até 17 anos</strong>, que encontram-se em situação de rua e vulnerabilidade relacionada a gênero.",
-            img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=800"
+            img: "imgs/mocasfoto.png"
         },
         missao: {
             title: "Nossa Missão",
             text: "Oferecer assistência e acolhimento de forma individual com serenidade e determinação, suprindo as necessidades humanas básicas e respeitando os princípios da ética no processo do cuidar, proporcionando desta forma condições que potencialize a sua inclusão.",
-            img: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=800"
+            img: "imgs/missao.png"
         },
         visao: {
             title: "Nossa Visão",
@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function() {
         valores: {
             title: "Nossos Valores",
             text: "Atuar durante toda assistência com calor humano, determinação, empatia, hospitalidade, respeito e serenidade, preservando a individualidade.",
-            img: "https://static.significados.com.br/foto/valores-og.jpg"
+            img: "imgs/coracao.png"
         }
     };
 

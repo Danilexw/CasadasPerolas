@@ -2508,3 +2508,163 @@ h1, h2 {
         transform: none !important; /* Desativa rotações em telas touch */
     }
 }
+
+/* ==========================================================================
+   HEADER MINIMALISTA E ATUALIZADO (ESTILO FIGMA)
+   ========================================================================== */
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #ffffff; /* Fundo totalmente branco limpo */
+    
+    /* Cria a linha horizontal sutil e contínua na base de todo o header */
+    border-bottom: 1px solid rgba(139, 90, 110, 0.12); 
+    box-shadow: none; /* Remove a sombra pesada antiga */
+    padding: 15px 0;
+    transition: all 0.3s ease;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-img {
+    height: 55px; /* Tamanho proporcional elegante */
+    width: auto;
+    display: block;
+    cursor: pointer;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    height: 100%;
+}
+
+.nav-list li {
+    position: relative; /* Base essencial para alinhar a barra rosa individual */
+}
+
+.nav-list li a {
+    text-decoration: none;
+    color: var(--marsala-escuro);
+    margin-left: 35px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 10px 0; /* Cria área útil para o clique e espaçamento para a linha */
+    display: inline-block;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* --- O SEGREDO DA LINHA ROSA ATIVA (IGUAL AO PRINT) --- */
+.nav-list li a.active::after,
+.nav-list li a:hover::after {
+    content: "";
+    position: absolute;
+    bottom: -6px; /* Ajusta a distância para a linha sentar perfeitamente acima da borda do header */
+    left: 0;
+    width: 100%;
+    height: 3px; /* Espessura exata da barrinha decorativa do Figma */
+    background-color: #fbcfe2; /* O rosa claro de destaque do seu projeto */
+    border-radius: 2px;
+}
+
+/* Altera a cor do texto do link ativo/hover para dar um feedback sutil */
+.nav-list li a.active,
+.nav-list li a:hover {
+    color: var(--marsala-medio);
+}
+/* ==========================================================================
+   SEÇÃO SOBRE NÓS - AJUSTE INTEGRADO COM A ONDA (ESTILO FIGMA)
+   ========================================================================== */
+.about-pink {
+    background-color: #fecce1;
+    padding: 110px 0 110px 0; 
+    margin: 0; 
+    position: relative; 
+}
+
+/* Pseudo-elemento da Onda (Mantido em z-index: 1) */
+.about-pink::before {
+    content: "";
+    position: absolute;
+    top: -95px;
+    left: 0;
+    width: 100%;
+    height: 100px; 
+    background-color: transparent;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100' preserveAspectRatio='none'%3E%3Cpath fill='%23fecce1' d='M0,64 C288,15 576,15 864,64 C1152,112 1296,96 1440,64 L1440,100 L0,100 Z'%3E%3C/path%3E%3C/svg%3E");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 1; /* Fica na camada de fundo */
+    transform: scaleX(-1); 
+}
+
+/* Container Flex que envolve Texto e Imagem */
+.about-pink .container-flex {
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+    gap: 50px;
+    max-width: 1200px; 
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+    z-index: 3; /* Força todo o conteúdo a ficar na frente da onda */
+}
+
+/* Lado da Imagem - Mágica para vazar acima da onda */
+.about-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    z-index: 4; /* Garante que a foto passe por cima do corte da onda */
+    margin-top: -160px; /* Puxa o container da foto para cima, fazendo as cabeças cruzarem a linha branca */
+}
+
+.about-image .circle-img {
+    width: 580px !important;  
+    height: 480px !important; 
+    border-radius: 0 !important; 
+    border: none !important;
+    box-shadow: none !important;
+    overflow: visible !important; /* Essencial: Permite que o topo das cabeças passe do limite do bloco */
+    background: transparent !important;
+    display: flex;
+    align-items: flex-end; 
+    justify-content: center;
+}
+
+.about-image .circle-img img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important; 
+    object-position: bottom center;
+}
+
+/* ==========================================================================
+   COMPORTAMENTO RESPONSIVO MOBILE
+   ========================================================================== */
+@media (max-width: 768px) {
+    .about-image {
+        margin-top: 20px !important; /* No mobile reseta o puxão para não cobrir o texto */
+    }
+    
+    .about-image .circle-img {
+        width: 100% !important;
+        max-width: 360px !important;
+        height: 300px !important;
+    }
+}
