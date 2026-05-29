@@ -2611,13 +2611,29 @@ h1, h2 {
 
 /* Garante o ajuste correto caso o usuário mude para o celular */
 @media (max-width: 768px) {
+    
+    /* Puxa o container inteiro para cima eliminando o espaço vazio abaixo dos botões */
+    .about-image {
+        margin-top: -30px !important; 
+        width: 100% !important;
+    }
+    
+    .about-image .circle-img {
+        width: 100% !important;
+        max-width: 360px !important;
+        height: 320px !important; /* Altura controlada para ajustar o enquadramento */
+    }
+
+    /* CORREÇÃO DO TRANSFORM: Combinando os dois eixos na mesma linha */
     .about-image .circle-img img[src$="mocasfoto.png"],
-    .about-image .circle-img img[src$="visao.jpg"] {
-        transform: translateY(-15px) !important; /* Suaviza o puxão no mobile */
-        transform: translateX( 12px) !important; /* Suaviza o puxão no mobile */
+    .about-image .circle-img img[src$="mocasfoto.jpg"] {
+        /* Aumentamos de -15px para -35px para puxar as meninas mais para cima */
+        transform: translateY(-35px) translateX(12px) !important; 
+        
+        transform-origin: bottom center !important;
+        object-fit: contain !important;
     }
 }
-
 /* Garante o ajuste correto caso o usuário mude para o celular */
 @media (max-width: 768px) {
     .about-image .circle-img img[src$="coracao.png"],
