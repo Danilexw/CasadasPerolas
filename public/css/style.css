@@ -205,21 +205,6 @@ h1, h2 {
     justify-content: flex-end;
 }
 
-.about-image .circle-img {
-    width: 420px; /* Tamanho fiel ao Figma */
-    height: 420px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: none;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-.about-image .circle-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
 /* Tabs (Abas) */
 .filter-tabs {
     display: flex;
@@ -292,12 +277,6 @@ h1, h2 {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsividade */
-@media (max-width: 992px) {
-    h1 { font-size: 2.8rem; }
-    .circle-img { width: 350px; height: 350px; }
-}
-
 @media (max-width: 768px) {
     .flex-hero, .container-flex, .grid-help {
         flex-direction: column;
@@ -309,10 +288,7 @@ h1, h2 {
     .hero-btns { justify-content: center; }
     .filter-tabs { justify-content: center; }
     
-    .circle-img {
-        width: 300px;
-        height: 300px;
-    }
+
 }
 
 /* Reset e Estilo Geral do Footer */
@@ -762,13 +738,6 @@ body {
         min-height: 50px; /* Garante que o texto não corte */
     }
 
-    /* Imagem Circular no Mobile */
-    .circle-img {
-        width: 280px; /* Reduzir tamanho para caber em telas pequenas */
-        height: 280px;
-        margin: 0 auto;
-    }
-
     /* Seção Como Ajudar Mobile */
     .how-to-help {
         padding: 50px 0;
@@ -830,9 +799,9 @@ body {
     align-items: center;
     position: relative;
     
-    /* Combinando o gradiente escuro E a imagem diretamente no CSS para garantir que ambos apareçam */
+    /* CORREÇÃO DO CAMINHO: Adicionado ../ para sair da pasta css e entrar em imgs */
     background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.35) 100%), 
-                      url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1200') !important;
+                      url('../imgs/comoajudar.png') !important;
 }
 
 .donation-banner h1 {
@@ -956,8 +925,8 @@ body {
     gap: 20px;
 }
 .rounded-img {
-    width: 100%;
-    height: 220px;
+    width: 150%;
+    height: 290px;
     object-fit: cover;
     border-radius: 20px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
@@ -1052,7 +1021,7 @@ body {
 
 /* Faixa rosa claro do segundo título */
 .bg-light-pink {
-    background-color: #fde4ee; /* Um tom de rosa ligeiramente mais suave para variação se preferir, ou mantenha var(--rosa-claro) */
+    background-color: var(--rosa-claro); /* Um tom de rosa ligeiramente mais suave para variação se preferir, ou mantenha var(--rosa-claro) */
 }
 
 /* Container de texto centralizado e ajustado para não espalhar muito na tela */
@@ -1867,11 +1836,6 @@ h1, h2 {
     .hero-btns, .filter-tabs { justify-content: center; }
     .about-image { justify-content: center; }
 
-    .circle-img, .about-image .circle-img {
-        width: 300px !important;
-        height: 300px !important;
-    }
-
     .contact-map { height: 320px; }
 }
 
@@ -1973,8 +1937,7 @@ h1, h2 {
     height: 440px;
     border-radius: 50%;
     overflow: hidden;
-    position: relative;
-    border: 8px solid white; /* Moldura branca elegante estilo Figma */
+    position: relative; 
     box-shadow: 0 20px 45px rgba(81, 44, 59, 0.12); /* Sombra suave multicamada */
     transition: transform 0.5s ease;
 }
@@ -2037,12 +2000,6 @@ h1, h2 {
         max-width: 160px;
     }
 
-    .hero-image .circle-img {
-        width: 310px !important; /* Um pouco maior e imponente no celular */
-        height: 310px !important;
-        border: 6px solid white !important;
-        box-shadow: 0 15px 35px rgba(81, 44, 59, 0.1) !important;
-    }
 }
 
 /* ==========================================================================
@@ -2236,14 +2193,43 @@ h1, h2 {
         line-height: 1.2 !important; /* Permite que o texto quebre sem estufar o botão outline */
     }
 
-    /* IMAGEM HERO NO SMARTPHONE */
-    .hero-image .circle-img {
-        width: 320px !important;
-        height: 320px !important;
-        border: 6px solid white !important;
-        box-shadow: 0 15px 35px rgba(81, 44, 59, 0.1) !important;
-    }
 }
+
+/* ==========================================================================
+   CONTAINER DA IMAGEM E ELEMENTOS DECORATIVOS (LOOK COMPLETO DO FIGMA)
+   ========================================================================== */
+.hero-image {
+    flex: 0.8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Base fixa para as plantas e o shape orbitarem */
+    width: 100%;
+    min-height: 520px; /* Garante que os shapes traseiros tenham espaço útil */
+    animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+    opacity: 0;
+}
+
+/* --- ELEMENTO 1: O SHAPE ROSA ASSIMÉTRICO (BLOB) --- */
+.hero-image::before {
+    content: "";
+    position: absolute;
+    width: 530px; /* Largura esticada horizontalmente idêntica ao print */
+    height: 440px; /* Um pouco mais baixo para criar o formato oval orgânico */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centralização matemática perfeita atrás da foto */
+    z-index: 1;
+    
+    /* Cor rosa oficial translúcida */
+    background-color: rgba(254, 204, 225, 0.85); 
+    
+    /* Curvaturas assimétricas dinâmicas calculadas para imitar o vetor do Figma */
+    border-radius: 41% 59% 45% 55% / 55% 58% 42% 45%;
+    
+    pointer-events: none;
+}
+
 
 /* ==========================================================================
    CONTAINER DA IMAGEM E ELEMENTOS DECORATIVOS (LOOK COMPLETO DO FIGMA)
@@ -2306,101 +2292,7 @@ h1, h2 {
     overflow: hidden;
     position: relative;
     z-index: 3; /* Força a foto a ficar por cima de toda a ilustração */
-    border: 12px solid white; /* Moldura branca espessa idêntica ao print */
-    box-shadow: 0 15px 40px rgba(81, 44, 59, 0.1);
-}
-
-/* ==========================================================================
-   MÍDIA QUERY RESPONSIVA (MOBILE AJUSTADO CONFORME SEU COLO ORIGINAL)
-   ========================================================================== */
-@media (max-width: 768px) {
-    .hero-image {
-        min-height: 400px !important;
-        margin-top: 20px;
-    }
-
-    /* Reduz o shape traseiro proporcionalmente para não quebrar a tela do celular */
-    .hero-image::before {
-        width: 350px !important;
-        height: 300px !important;
-        border-radius: 41% 59% 45% 55% / 55% 58% 42% 45% !important;
-    }
-
-    /* Reduz a ilustração de plantas para abraçar o círculo menor */
-    .hero-image::after {
-        width: 390px !important;
-        height: 340px !important;
-    }
-
-    .hero-image .circle-img {
-        width: 270px !important;
-        height: 270px !important;
-        border: 8px solid white !important;
-    }
-}
-
-/* ==========================================================================
-   CONTAINER DA IMAGEM E ELEMENTOS DECORATIVOS (LOOK COMPLETO DO FIGMA)
-   ========================================================================== */
-.hero-image {
-    flex: 0.8;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative; /* Base fixa para as plantas e o shape orbitarem */
-    width: 100%;
-    min-height: 520px; /* Garante que os shapes traseiros tenham espaço útil */
-    animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
-    opacity: 0;
-}
-
-/* --- ELEMENTO 1: O SHAPE ROSA ASSIMÉTRICO (BLOB) --- */
-.hero-image::before {
-    content: "";
-    position: absolute;
-    width: 530px; /* Largura esticada horizontalmente idêntica ao print */
-    height: 440px; /* Um pouco mais baixo para criar o formato oval orgânico */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Centralização matemática perfeita atrás da foto */
-    z-index: 1;
-    
-    /* Cor rosa oficial translúcida */
-    background-color: rgba(254, 204, 225, 0.85); 
-    
-    /* Curvaturas assimétricas dinâmicas calculadas para imitar o vetor do Figma */
-    border-radius: 41% 59% 45% 55% / 55% 58% 42% 45%;
-    
-    pointer-events: none;
-}
-
-/* --- ELEMENTO 2: A ILUSTRAÇÃO DE PLANTAS BRANCAS (RAMOS FLUTUANTES) --- */
-.hero-image::after {
-    content: "";
-    position: absolute;
-    width: 600px; /* Abre além do shape rosa para as folhas brotarem nas pontas */
-    height: 500px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2; /* Fica entre o shape rosa e a foto circular */
-    
-    /* Injeção direta de um vetor SVG de folhas lineares brancas (limpo e sem peso) */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 500'%3E%3Cpath d='M80,260 C120,200 200,160 280,240 M280,240 C360,180 460,200 520,280 M120,220 C100,170 140,130 180,160 M440,210 C460,150 420,110 380,140 M180,300 C140,350 80,330 110,280 M400,320 C420,380 480,360 460,300' stroke='white' stroke-width='2.5' fill='none' stroke-linecap='round' opacity='0.75'/%3E%3C!-- Ramos da Esquerda --%3E%3Cpath d='M150,190 Q120,130 60,160 Q110,210 150,190 Z' fill='none' stroke='white' stroke-width='2' opacity='0.8'/%3E%3Cpath d='M200,175 Q180,100 130,110 Q160,170 200,175 Z' fill='none' stroke='white' stroke-width='2' opacity='0.8'/%3E%3Cpath d='M110,245 Q50,220 40,280 Q90,270 110,245 Z' fill='none' stroke='white' stroke-width='2' opacity='0.8'/%3E%3C!-- Ramos da Direita --%3E%3Cpath d='M420,195 Q450,130 510,155 Q460,210 420,195 Z' fill='none' stroke='white' stroke-width='2' opacity='0.8'/%3E%3Cpath d='M370,180 Q380,100 430,105 Q410,170 370,180 Z' fill='none' stroke='white' stroke-width='2' opacity='0.8'/%3E%3Cpath d='M460,240 Q520,215 540,275 Q490,265 460,240 Z' fill='none' stroke='white' stroke-width='2' opacity='0.8'/%3E%3C/svg%3E");
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    pointer-events: none;
-}
-
-/* --- ELEMENTO 3: A FOTO CIRCULAR PRINCIPAL PRINCIPAL --- */
-.hero-image .circle-img {
-    width: 380px; /* Reduzido levemente para o shape e as plantas aparecerem mais */
-    height: 380px;
-    border-radius: 50%;
-    overflow: hidden;
-    position: relative;
-    z-index: 3; /* Força a foto a ficar por cima de toda a ilustração */
-    border: 12px solid white; /* Moldura branca espessa idêntica ao print */
+    border: 5px solid rgba(75, 21, 57, 0); /* Moldura branca espessa idêntica ao print */
     box-shadow: 0 15px 40px rgba(81, 44, 59, 0.1);
 }
 
@@ -2622,7 +2514,11 @@ h1, h2 {
     z-index: 3; /* Força todo o conteúdo a ficar na frente da onda */
 }
 
-/* Lado da Imagem - Mágica para vazar acima da onda */
+/* ==========================================================================
+   CONFIGURAÇÃO DAS IMAGENS DO CARROSSEL (PHOTOSHOP LIVRES)
+   ========================================================================== */
+
+/* 1. CONTAINER DA DIREITA: Remove o recuo antigo e cria o z-index para vazar a onda */
 .about-image {
     flex: 1;
     display: flex;
@@ -2630,41 +2526,614 @@ h1, h2 {
     align-items: center;
     width: 100%;
     position: relative;
-    z-index: 4; /* Garante que a foto passe por cima do corte da onda */
-    margin-top: -160px; /* Puxa o container da foto para cima, fazendo as cabeças cruzarem a linha branca */
+    z-index: 4; /* Faz as imagens passarem por cima da linha da onda */
+    margin-top: -160px; /* Puxa o canvas do Photoshop para cima no desktop */
 }
 
+/* 2. O ELEMENTO QUE ANTES ERA UM CÍRCULO:
+   Agora ele vira uma caixa invisível quadrada, respeitando as dimensões reais das fotos */
 .about-image .circle-img {
-    width: 580px !important;  
-    height: 480px !important; 
-    border-radius: 0 !important; 
+    width: 580px !important;  /* Largura máxima para caber as 3 moças sem cortes */
+    height: 480px !important; /* Altura máxima proporcional */
+    border-radius: 0 !important; /* DESTRÓI O CÍRCULO: Libera as fotos do Photoshop */
     border: none !important;
     box-shadow: none !important;
-    overflow: visible !important; /* Essencial: Permite que o topo das cabeças passe do limite do bloco */
+    overflow: visible !important; /* Permite que o topo arredondado passe da div rosa */
     background: transparent !important;
     display: flex;
-    align-items: flex-end; 
+    align-items: flex-end; /* Senta a base desvanecida no chão da seção */
     justify-content: center;
+    flex-shrink: 0;
 }
 
+/* 3. A TAG IMG INTERNA DO CARROSSEL:
+   Controla a renderização das imagens injetadas pelo JavaScript */
 .about-image .circle-img img {
     width: 100% !important;
     height: 100% !important;
+    
+    /* MUDANÇA ESSENCIAL: 'contain' impede que o navegador corte ou estique 
+       as imagens com tamanhos de canvas diferentes (938x620, 560x532, etc) */
     object-fit: contain !important; 
-    object-position: bottom center;
+    
+    object-position: bottom center !important; /* Alinha todas rigidamente pela base */
+    transform: none !important;
 }
 
 /* ==========================================================================
-   COMPORTAMENTO RESPONSIVO MOBILE
+   AJUSTE CIRÚRGICO EXCLUSIVO PARA A ABA MISSÃO (CORREÇÃO PARA ANEXO 1)
+   ========================================================================== */
+.about-image .circle-img img[src$="missao.png"],
+.about-image .circle-img img[src$="missao.jpg"] {
+    /* Puxa a imagem da missão para cima para vazar a onda e igualar ao Sobre Nós */
+    transform: translateY(40px) !important; 
+    
+    /* Garante que o navegador use a escala real do seu canvas do Photoshop */
+    object-fit: contain !important; 
+}
+
+/* ==========================================================================
+   AJUSTE CIRÚRGICO EXCLUSIVO PARA A ABA MISSÃO (CORREÇÃO PARA ANEXO 1)
+   ========================================================================== */
+.about-image .circle-img img[src$="coracao.png"],
+.about-image .circle-img img[src$="missao.jpg"] {
+    /* Puxa a imagem da missão para cima para vazar a onda e igualar ao Sobre Nós */
+    transform: translateY(40px) !important; 
+    
+    /* Garante que o navegador use a escala real do seu canvas do Photoshop */
+    object-fit: contain !important; 
+}
+
+.about-image .circle-img img[src$="visao.png"],
+.about-image .circle-img img[src$="missao.jpg"] {
+    /* Puxa a imagem da missão para cima para vazar a onda e igualar ao Sobre Nós */
+    transform: translateY(40px) !important; 
+    
+    /* Garante que o navegador use a escala real do seu canvas do Photoshop */
+    object-fit: contain !important; 
+}
+
+/* Garante o ajuste correto caso o usuário mude para o celular */
+@media (max-width: 768px) {
+    .about-image .circle-img img[src$="missao.png"],
+    .about-image .circle-img img[src$="missao.jpg"] {
+        transform: translateY(-15px) !important; /* Suaviza o puxão no mobile */
+    }
+}
+
+/* Garante o ajuste correto caso o usuário mude para o celular */
+@media (max-width: 768px) {
+    .about-image .circle-img img[src$="visao.png"],
+    .about-image .circle-img img[src$="visao.jpg"] {
+        transform: translateY(-15px) !important; /* Suaviza o puxão no mobile */
+    }
+}
+
+/* Garante o ajuste correto caso o usuário mude para o celular */
+@media (max-width: 768px) {
+    .about-image .circle-img img[src$="mocasfoto.png"],
+    .about-image .circle-img img[src$="visao.jpg"] {
+        transform: translateY(-15px) !important; /* Suaviza o puxão no mobile */
+        transform: translateX( 12px) !important; /* Suaviza o puxão no mobile */
+    }
+}
+
+/* Garante o ajuste correto caso o usuário mude para o celular */
+@media (max-width: 768px) {
+    .about-image .circle-img img[src$="coracao.png"],
+    .about-image .circle-img img[src$="visao.jpg"] {
+        transform: translateY(-25px) !important; /* Suaviza o puxão no mobile */
+    }
+}
+
+/* ==========================================================================
+   COMPORTAMENTO RESPONSIVO MOBILE (BLINDADO CONTRA QUEBRAS)
    ========================================================================== */
 @media (max-width: 768px) {
     .about-image {
-        margin-top: 20px !important; /* No mobile reseta o puxão para não cobrir o texto */
+        margin-top: 20px !important; /* Reseta o puxão vertical no celular */
     }
     
     .about-image .circle-img {
         width: 100% !important;
         max-width: 360px !important;
         height: 300px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .materials-images {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+        padding: 0 15px !important; /* Cria um respiro elegante nas laterais para as fotos não colarem na borda da tela */
+        width: 100% !important;
+    }
+
+    .rounded-img {
+        /* MUDANÇA ESSENCIAL: Garante que a foto ocupe toda a largura disponível do celular sem vazar */
+        width: 100% !important; 
+        
+        height: 200px !important; /* Altura sutilmente reduzida no mobile para melhor proporção vertical */
+        object-fit: cover !important;
+        border-radius: 20px !important;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
+    }
+}
+
+/* ==========================================================================
+   TELA DE DOAÇÃO FINANCEIRA OTANIZADA (ESTILO FIGMA)
+   ========================================================================== */
+.donation-details-sec {
+    padding: 80px 0;
+    background-color: var(--bege-fundo);
+}
+
+/* Grid Principal em Duas Colunas */
+.grid-donation-panel {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+.donation-header h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3rem;
+    color: var(--marsala-escuro);
+    margin-bottom: 8px;
+}
+
+.donation-header p {
+    font-family: 'Raleway', sans-serif;
+    color: var(--marsala-medio);
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.donation-intro {
+    font-size: 1.05rem !important;
+    color: #614d55 !important;
+    font-weight: 400 !important;
+    line-height: 1.6;
+    margin-bottom: 35px !important;
+}
+
+/* Card de Transferência Unificado */
+.bank-card {
+    background-color: #ffffff;
+    border: 1px solid rgba(139, 90, 110, 0.1);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(81, 44, 59, 0.02);
+    margin-bottom: 20px;
+}
+
+.bank-card h3 {
+    font-family: 'Raleway', sans-serif;
+    color: var(--marsala-escuro);
+    font-size: 1.25rem;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.bank-row {
+    margin-bottom: 20px;
+}
+
+.bank-row.group-fields {
+    display: flex;
+    gap: 20px;
+}
+
+.bank-field {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.bank-field label, .favorecido-box label, .pix-key-box label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #9c838e;
+    font-weight: 700;
+}
+
+.bank-field span {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--marsala-escuro);
+}
+
+/* Mini Grupos de Copiar */
+.copy-field-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff9fb;
+    border: 1px solid rgba(139, 90, 110, 0.1);
+    border-radius: 10px;
+    padding: 8px 14px;
+}
+
+.btn-mini-copy {
+    background-color: transparent;
+    border: none;
+    color: var(--marsala-medio);
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.btn-mini-copy:hover {
+    color: var(--marsala-escuro);
+}
+
+/* Caixa do Favorecido */
+.favorecido-box {
+    background-color: rgba(139, 90, 110, 0.04);
+    border-radius: 14px;
+    padding: 16px 24px;
+    border-left: 4px solid var(--marsala-medio);
+}
+
+.favorecido-box p {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--marsala-escuro);
+    margin: 4px 0 0 0;
+}
+
+/* Card Destacado do Pix */
+.pix-card-highlight {
+    background-color: #512c3b; /* A cor marsala escura do seu projeto */
+    border-radius: 24px;
+    padding: 40px;
+    text-align: center;
+    color: #ffffff;
+    box-shadow: 0 15px 35px rgba(81, 44, 59, 0.15);
+}
+
+.pix-badge {
+    background-color: #fecce1;
+    color: #512c3b;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.pix-card-highlight p {
+    color: #f3e6ec;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+.qrcode-wrapper {
+    background-color: #ffffff;
+    padding: 16px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.qrcode-wrapper img {
+    width: 200px;
+    height: 200px;
+    display: block;
+}
+
+/* Chave Pix e Botão Principal */
+.pix-key-box {
+    text-align: left;
+}
+
+.pix-key-box label {
+    color: #cbb4be;
+}
+
+.pix-input-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 14px;
+    padding: 8px 8px 8px 18px;
+    margin-top: 8px;
+}
+
+.pix-input-wrapper span {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.3px;
+}
+
+.btn-copy-main {
+    background-color: #fecce1;
+    color: #512c3b;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+}
+
+.btn-copy-main:hover {
+    background-color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   COMPORTAMENTO RESPONSIVO (MOBILE)
+   ========================================================================== */
+@media (max-width: 992px) {
+    .grid-donation-panel {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .bank-row.group-fields {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .pix-input-wrapper {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+        text-align: center;
+    }
+    
+    .btn-copy-main {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ==========================================================================
+   PÁGINA O QUE FAZEMOS / VOLUNTARIADO (ESTILO REORGANIZADO)
+   ========================================================================== */
+
+/* ==========================================================================
+   HEADER DA PÁGINA COM IMAGEM DE FUNDO (ESTILO FIGMA BANNER)
+   ========================================================================== */
+.page-header-wave {
+    height: 350px; /* Altura fixa elegante para o banner */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 0;
+    
+    /* GRADIENTE + SUA IMAGEM: Altere 'comoajudar.png' para o nome do arquivo que quer usar no fundo */
+    background-image: linear-gradient(180deg, rgba(36, 5, 15, 0.85) 0%, rgba(66, 19, 35, 0.6) 100%), 
+                      url('../imgs/fazemos.png') !important;
+}
+
+/* Garante que o conteúdo interno fique centralizado e acima do fundo */
+.header-wave-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    width: 100%;
+}
+
+.page-header-wave h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3.5rem;
+    color: var(--rosa-claro);
+    font-style: italic;
+    margin: 0;
+}
+
+.page-header-wave h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3.2rem;
+    color: var(--rosa-claro);
+    font-style: italic;
+}
+
+.heart-line-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.heart-line-center::before {
+    content: "❤";
+    color: var(--marsala-medio);
+    font-size: 1.2rem;
+}
+
+/* Section dos Cards de Pilares */
+.pillars-section {
+    padding: 80px 0;
+    background-color: #ffffff;
+}
+
+.grid-pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.pillar-card {
+    background-color: var(--bege-fundo);
+    border: 1px solid rgba(139, 90, 110, 0.05);
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pillar-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(81, 44, 59, 0.06);
+}
+
+.pillar-icon {
+    font-size: 2.5rem;
+    color: var(--marsala-medio);
+    margin-bottom: 20px;
+}
+
+.pillar-card h3 {
+    font-family: 'Raleway', sans-serif;
+    color: var(--marsala-escuro);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.pillar-card p {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #614d55;
+}
+
+/* Seção de Voluntariado */
+.volunteer-section {
+    padding: 100px 0;
+    background-color: var(--bege-fundo);
+}
+
+.grid-volunteer {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.volunteer-text-box h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.8rem;
+    color: var(--marsala-escuro);
+    margin-bottom: 15px;
+}
+
+.volunteer-text-box p {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #614d55;
+    margin-bottom: 20px;
+    max-width: 520px;
+}
+
+/* Card customizado do Formulário */
+.volunteer-form-card {
+    background-color: #ffffff;
+    border-radius: 24px;
+    padding: 45px 40px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(81, 44, 59, 0.04);
+    border: 1px solid rgba(139, 90, 110, 0.08);
+}
+
+.form-card-icon {
+    width: 60px;
+    height: 60px;
+    background-color: #fff0f5;
+    color: var(--marsala-medio);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+    margin: 0 auto 20px auto;
+}
+
+.volunteer-form-card h3 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.4rem;
+    color: var(--marsala-escuro);
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.volunteer-form-card p {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.95rem;
+    color: #7a636c;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.confidential-tag {
+    display: block;
+    font-size: 0.85rem;
+    color: #a38b95;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+/* O Novo Botão na Paleta Oficial */
+.btn-volunteer-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 16px;
+    background-color: var(--marsala-medio);
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 15px rgba(139, 90, 110, 0.2);
+}
+
+.btn-volunteer-submit:hover {
+    background-color: var(--marsala-escuro);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(81, 44, 59, 0.25);
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (MOBILE)
+   ========================================================================== */
+@media (max-width: 992px) {
+    .grid-pillars {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .grid-volunteer {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+    
+    .volunteer-text-box p {
+        margin-left: auto;
+        margin-right: auto;
     }
 }

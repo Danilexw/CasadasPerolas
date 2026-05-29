@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function() {
         visao: {
             title: "Nossa Visão",
             text: "Ser reconhecida como Instituição de acolhimento, referência na região metropolitana de Salvador no atendimento com excelência e qualidade.",
-            img: "https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?q=80&w=800"
+            img: "imgs/visao.png"
         },
         valores: {
             title: "Nossos Valores",
@@ -108,4 +108,17 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
     }
+    
 });
+
+// Função para Copiar Chaves e Dados Bancários automaticamente
+function copyText(elementId) {
+    const textToCopy = document.getElementById(elementId).innerText;
+    
+    navigator.clipboard.writeText(textToCopy).then(() => {
+        // Alerta sutil ou feedback visual pode ser injetado aqui
+        alert("Copiado com sucesso: " + textToCopy);
+    }).catch(err => {
+        console.error("Erro ao copiar texto: ", err);
+    });
+}

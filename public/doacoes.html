@@ -32,7 +32,7 @@
         </div>
     </header>
 
-    <section class="donation-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1200');">
+    <section class="donation-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('imgs/comoajudar.png');">
         <div class="container">
             <h1>Como ajudar?</h1>
         </div>
@@ -75,13 +75,13 @@
                 <div class="allowed-items-box">
                     <h3>Entre os itens que podem ser doados estão:</h3>
                     <ul>
-                        <li>• alimentos não perecíveis;</li>
-                        <li>• roupas em bom estado;</li>
-                        <li>• produtos de higiene pessoal;</li>
-                        <li>• materiais de limpeza;</li>
-                        <li>• brinquedos;</li>
-                        <li>• materiais escolares;</li>
-                        <li>• móveis e utensílios domésticos;</li>
+                        <li>• Alimentos não perecíveis;</li>
+                        <li>• Roupas em bom estado;</li>
+                        <li>• Produtos de higiene pessoal;</li>
+                        <li>• Materiais de limpeza;</li>
+                        <li>• Brinquedos;</li>
+                        <li>• Materiais escolares;</li>
+                        <li>• Móveis e utensílios domésticos;</li>
                     </ul>
                 </div>
 
@@ -93,55 +93,82 @@
             </div>
 
             <div class="materials-images">
-                <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=600" alt="Entrega de alimentos" class="rounded-img">
-                <img src="https://images.unsplash.com/photo-1489659639091-8b687bc4386e?q=80&w=600" alt="Crianças em atividade" class="rounded-img">
+                <img src="imgs/doacoes1.png" alt="Entrega de alimentos" class="rounded-img">
+                <img src="imgs/doacoes2.png" alt="Crianças em atividade" class="rounded-img">
             </div>
         </div>
     </section>
 
-    <section class="financial-section">
-        <div class="container grid-financial">
-            <div class="financial-text">
+    <section class="donation-details-sec">
+    <div class="container grid-donation-panel">
+        
+        <div class="donation-left-panel">
+            <div class="donation-header">
                 <h2>Doação Financeira</h2>
-                <p class="subtitle">Contribua para transformar vidas.</p>
-                
-                <p>As doações financeiras ajudam a manter e ampliar as atividades do Lar Pérolas de Cristo, possibilitando a continuidade dos serviços de acolhimento, alimentação, educação e cuidado oferecidos às pessoas atendidas pela instituição.</p>
-                
-                <p class="pix-callout">Você pode contribuir de forma simples e segura através do Pix.</p>
+                <p>Contribua para transformar vidas.</p>
+                <p class="donation-intro">
+                    As doações financeiras ajudam a manter e ampliar as atividades da Casa das Pérolas, 
+                    possibilitando a continuidade dos serviços de acolhimento, alimentação, educação e cuidado oferecidos às pessoas atendidas pela instituição.
+                </p>
+            </div>
 
-                <div class="bank-details-grid">
-                    <div class="bank-card">
-                        <span>Banco:</span>
-                        <strong>Banco do Brasil</strong>
-                    </div>
-                    <div class="bank-card">
-                        <span>Agência:</span>
-                        <strong>104086-3</strong>
-                    </div>
-                    <div class="bank-card">
-                        <span>Conta:</span>
-                        <strong>0904-0</strong>
+            <div class="bank-card">
+                <h3><i class="fas fa-university"></i> Transferência Bancária</h3>
+                
+                <div class="bank-row">
+                    <div class="bank-field">
+                        <label>Banco</label>
+                        <span>Banco do Brasil</span>
                     </div>
                 </div>
-
-                <div class="full-width-bank-card">
-                    <span>Chave Pix (CNPJ):</span>
-                    <strong>97.326.243/0001-56</strong>
-                </div>
-
-                <div class="full-width-bank-card fav-card">
-                    <span>Favorecido:</span>
-                    <strong>Associação Clube de Mães do Lar Pérolas de Cristo</strong>
+                
+                <div class="bank-row group-fields">
+                    <div class="bank-field">
+                        <label>Agência</label>
+                        <div class="copy-field-group">
+                            <span id="txt-agencia">104086-3</span>
+                            <button class="btn-mini-copy" onclick="copyText('txt-agencia')">Copiar</button>
+                        </div>
+                    </div>
+                    <div class="bank-field">
+                        <label>Conta</label>
+                        <div class="copy-field-group">
+                            <span id="txt-conta">0904-0</span>
+                            <button class="btn-mini-copy" onclick="copyText('txt-conta')">Copiar</button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="financial-qrcode">
+            <div class="favorecido-box">
+                <label>Favorecido / Razão Social:</label>
+                <p>Associação Clube de Mães do Lar Pérolas de Cristo</p>
+            </div>
+        </div>
+
+        <div class="donation-right-panel">
+            <div class="pix-card-highlight">
+                <div class="pix-badge"><i class="fas fa-bolt"></i> Pague com Pix</div>
+                <p>Você pode contribuir de forma simples e segura apontando a câmera do celular ou copiando a chave abaixo.</p>
+                
                 <div class="qrcode-wrapper">
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=ChavePixCNPJ" alt="QR Code Pix" class="qrcode-img">
+                    <img src="imgs/qrcode.png" alt="QR Code Pix Casa das Pérolas">
+                </div>
+
+                <div class="pix-key-box">
+                    <label>Chave Pix (CNPJ)</label>
+                    <div class="pix-input-wrapper">
+                        <span id="txt-cnpj">97.326.243/0001-56</span>
+                        <button class="btn-copy-main" onclick="copyText('txt-cnpj')">
+                            <i class="far fa-copy"></i> Copiar Chave
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+
+    </div>
+</section>
 
     <footer class="main-footer">
         <div class="container footer-grid">
